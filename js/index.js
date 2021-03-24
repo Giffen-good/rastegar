@@ -38,27 +38,26 @@
         }
       });
     }
-    var splashVideo = document.getElementById('splash-video');
-    if (splashVideo) {
-      var vid = document.createElement('video')
-      vid.src = splashVideo.getAttribute('src');
-      vid.type = "video/mp4";
-      vid.autoplay = true;
-      vid.muted = true;
-      
-      vid.id = 'splashVideo';
-      splashVideo.classList.add('playing');
-      splashVideo.appendChild(vid);
-      vid.addEventListener('ended',myHandler,false);
-      function myHandler(e) {
-        console.log('completed');
-        splashVideo.classList.add('completed');
-
+    
+    if (!sessionStorage.isVisited) {
+      sessionStorage.isVisited = 'true'
+      var splashVideo = document.getElementById('splash-video');
+      if (splashVideo) {
+        var vid = document.createElement('video')
+        vid.src = splashVideo.getAttribute('src');
+        vid.type = "video/mp4";
+        vid.autoplay = true;
+        vid.muted = true;
+        
+        vid.id = 'splashVideo';
+        splashVideo.classList.add('playing');
+        splashVideo.appendChild(vid);
+        vid.addEventListener('ended',myHandler,false);
+        function myHandler(e) {
+          console.log('completed');
+          splashVideo.classList.add('completed');
+        }
       }
     }
-    // if (!sessionStorage.isVisited) {
-    //   sessionStorage.isVisited = 'true'
-      
-    // }
   })
 })();
