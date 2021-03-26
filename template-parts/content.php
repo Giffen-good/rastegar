@@ -28,7 +28,7 @@ $featured_img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ),
 			</div>
 		</div>
 	</div>
-	<div class="entry-content post-page xs-max-w">
+	<div class="entry-content post-page">
 		<?php
 		the_content(
 			sprintf(

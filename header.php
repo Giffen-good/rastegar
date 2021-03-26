@@ -60,5 +60,6 @@
 				)
 			);
 			?>
+			<div class="wp-block-button"><a class="wp-block-button__link" href="http://connect.rastegarproperty.com/">Contact</a></div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

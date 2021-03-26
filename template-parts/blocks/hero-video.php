@@ -69,8 +69,8 @@ if ($self_hosted_video) {
     </div>
   <div class="hero-vid-wrapper">
     <section id="<?php echo esc_attr($id); ?>" class="hero-banner vid">
-    <?php echo $video; ?>  
-    
+      <?php echo $video; ?>  
     </section>
+    <div class="opass"></div>
   </div>
 </div>

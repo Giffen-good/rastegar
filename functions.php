@@ -285,7 +285,15 @@ function my_acf_init_block_types() {
 					'icon'              => 'admin-comments',
 					'keywords'          => array( 'bubble-image', 'rastegar' ),
 				));
-
+				acf_register_block_type(array(
+					'name'              => 'faq-dropdown',
+					'title'             => __('FAQ dropdown'),
+					'description'       => __('FAQ dropdown'),
+					'render_template'   => 'template-parts/blocks/faq-dropdown.php',
+					'category'          => 'formatting',
+					'icon'              => 'admin-comments',
+					'keywords'          => array( 'faq-dropdown', 'rastegar' ),
+				));
     }
 }
 
@@ -342,6 +350,42 @@ register_block_pattern(
 		)
 );
 
+
+register_block_pattern(
+	'rastegar/news-widget',
+	array(
+			'title'       => __( 'News Feed Widget', 'rastegar' ),
+			'description' => _x( 'Renders the latest 8 newsfeed posts.', 'Block pattern description', 'my-plugin' ),
+			'content'     => '<!-- wp:group {"className":"standard-wrapper"} --> <div class="wp-block-group standard-wrapper"><div class="wp-block-group__inner-container"><!-- wp:heading --> <h2></h2> <!-- /wp:heading --> <!-- wp:paragraph --> <p></p> <!-- /wp:paragraph --></div></div> <!-- /wp:group -->'
+		)
+);
+
+
+
+register_block_pattern(
+	'rastegar/table-of-contents',
+	array(
+			'title'       => __( 'Table of Contents', 'rastegar' ),
+			'description' => _x( 'Table of Contents', 'Block pattern description', 'my-plugin' ),
+			'content'     => '
+			<!-- wp:separator -->
+			<hr class="wp-block-separator table-of-contents"/>
+			<!-- /wp:separator -->
+			'
+		)
+);
+
+register_block_pattern(
+	'rastegar/chapter-heading',
+	array(
+			'title'       => __( 'Chapter Heading', 'rastegar' ),
+			'description' => _x( 'Chapter Heading', 'Block pattern description', 'my-plugin' ),
+			'content'     => '
+			<!-- wp:heading {"className":"chapter-heading"} -->
+			<h2 class="chapter-heading"></h2>
+			<!-- /wp:heading -->' 
+		)
+);
 
 
 register_block_pattern(

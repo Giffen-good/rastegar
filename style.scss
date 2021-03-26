@@ -55,7 +55,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 
 
-$pageWidth:90%;
+$pageWidth:95%;
 $pageWidthPadding: 5vw;
 $smallerMaxWidth: 960px;
 $largeMaxWidth: 1400px;
@@ -1072,9 +1072,11 @@ header {
 		color:white;
 	}
 	.menu-item {
-		padding-left:30px;
+		padding:0 15px;
 	}
-
+	.wp-block-button {
+		padding-left:15px;
+	}
 
 	.dark-mode {
 		display: none;
@@ -1102,10 +1104,14 @@ header {
 		position:absolute;
 		bottom:10%;
 		width:$pageWidth;
+		max-width:initial;
 		& > * {
 			max-width: 810px;
 		}
 	}
+}
+.hero-banner .wp-block-cover__inner-container {
+	max-width:$smallerMaxWidth;
 }
 .sixty-forty-gallery {
 	
@@ -1160,10 +1166,12 @@ header {
 .sixty-forty .text-box + .wp-block-column .wp-block-image {
 	text-align: right;
 }
-.hero-banner {
+.entry-content .hero-banner {
+	max-width: initial;
+	width:100%;
 	position:relative;
 	.wp-block-cover {
-		height:75vh;
+		height:65vh;
 	}
 }
 .wp-block-cover {
@@ -1190,15 +1198,13 @@ footer.site-footer {
 .cta p {
 	font-size:1.2rem;
 }
-.post-page {
-	width:$pageWidth;
-}
 .entry-content > div.wp-block-group.cta {
 	max-width: $smallerMaxWidth;
 	width: $pageWidth;
 	margin: 0 auto;
-	padding-top:3rem;
-	padding-bottom:6rem;
+	margin-bottom:8rem;
+	padding-top:2rem;
+	padding-bottom:4rem;
 }
 .disclaimer {
 	width: $pageWidth;
@@ -1297,14 +1303,14 @@ ul {
 	padding: 0;
 	overflow:hidden;
 	border:none;
-	height:55vw;
+	// height:55vw;
 	max-height:770px;
 	.wp-block-cover__inner-container, .text-box {
 		max-width: 90%;
 		top:32px;
 		padding-left:25px;
 		left:0;
-		width:90%;
+		width:$pageWidth;
 		color:white;
 		position: absolute;
 	}
@@ -1331,32 +1337,105 @@ ul {
 		margin-right:0 !important;
 	}
 }
-
-.xs-max-w {
+.opass {
+	height: 100%;
+	opacity:0.33;
+	background:#000;
+	width:100%;
+	top:0;
+	left:0;
+	position: absolute;
+}
+.entry-content > * .wp-block-columns {
+	width:100%;
+}
+.xs-max-w, .entry-content > *:not(.sixty-forty):not(.hero-banner) {
 	margin: 0 auto;
+	width:$pageWidth;
 	max-width: $smallerMaxWidth;
 }
 .post-page {
 	margin-top: 7rem;
 }
-.news-feed, .wp-block-latest-posts__list, .entry-content > *:not(.sixty-forty):not(.disclaimer) {
+.news-feed, .wp-block-latest-posts__list, .entry-content > div:not(.sixty-forty):not(.disclaimer) {
 	margin-bottom:8rem;
 }
 .hidden {
 	display: none;
 }
-
-.team-gallery > div {
+.table-of-contents {
+	display:none;
+}
+#toc-wrap > h2, .chapter-label {
+	text-align: center;
+	font-size:1rem;
+	opacity:0.33;
+}
+.chapter-label {
+	margin-top:12rem;
+}
+.chapter-heading {
+	margin-bottom:2rem;
+	text-align: center;
+}
+#toc-wrap {
+	
+	margin: 0 auto;
+	margin-top:8rem;
+}
+#real-table-of-contents {
+	flex-wrap:wrap;
+	.standard-wrapper {
+		flex: 1 0 30%;
+		max-width: 32%;
+		margin: 5px;
+		h2 {
+			line-height: 1.5rem;
+			font-size:1.2rem;
+		}
+	}
+	@media screen and (max-width:850px) {
+		.standard-wrapper {
+			flex:1 0 48%;
+			max-width: initial;
+		}
+	}
+}
+.team-gallery {
+	.image {
+		position: relative;
+		border: solid 1px;
+		height: 32vw;
+		max-height:304px;
+		border-radius: 26px;
+	}
+	img {
+		position:absolute;
+		height:100%;
+		width: 100%;
+		object-fit: cover;
+	}
+	.modal-button-container {
+		padding-top:45px;
+		text-align: center;
+	}
+}
+.team-gallery > .member-card {
 	display:flex;
 	flex-wrap: wrap;
-	width:$pageWidth;
 	max-width: 1080px;
 	margin: 0 auto;
-	justify-content: center;
+	justify-content: flex-start;
 	.team-member {
-		margin: 0 5px 45px;
-		cursor: pointer;
+		padding: 0 5px 45px;
+		width:25%;
+		h4 {
+			margin-top:-10px;
+			opacity:0.33;
+		}
+	
 		* {
+			cursor: pointer;
 			margin: 0;
 		}
 		h3 {
@@ -1369,8 +1448,50 @@ ul {
 		.image {
 			overflow: hidden;
 		}
-
 	}
+		
+}
+.hidden {
+	display: none;
+}
+.modal.open {
+	max-height: 100vh;
+	overflow: hidden;
+	.image {
+		width:21vw;
+		max-width: 230px;
+	}
+	display: initial;
+	position:fixed;
+	top:50%;
+	left:50%;
+	border-radius:25px;
+	border:solid 1px;
+	max-width:700px;
+	width:$pageWidth;
+	transform:translate(-50%,-50%);
+	.inner {
+		padding:34px;
+	}
+	.bg {
+		top:50%;
+		transform:translateY(-50%);
+		height:105%;
+		width:105%;
+		z-index: -1;
+		position: absolute;
+		background:rgba(234, 234, 234, 0.85);
+		filter: blur(4px);
+		border-radius: 25px;
+	}
+}
+.team-gallery .modal-close {
+	position: absolute;
+	height:14px;
+	width:14px;
+	top:38px;
+	right:38px;
+	cursor:pointer;
 }
 @media screen and (max-width:600px) {
 	.wp-block-columns:not(.sixty-forty) {
@@ -1529,4 +1650,79 @@ ul {
 	width:100%;
 	left:0;
 	top:0;
+}
+
+.faq {
+	.standard-wrapper {
+		padding:0;
+	}
+}
+.faq-entry  {
+	.head-wrapper {
+		cursor: pointer;
+		padding: 0 34px;
+
+	}
+	.dropdown {
+		margin: 20px 34px;
+	}
+	.open + .dropdown {
+		display: block;
+	}
+	.heading {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-bottom:solid 1px;
+	}
+	&:last-child {
+		
+		.open .heading {
+			border-bottom: solid 1px;
+		}
+		.heading {
+			border-bottom: none;
+		}
+	}
+}
+.out-of-view {
+	opacity:0;
+	&.in-view {
+		transition:opacity 1s;
+		opacity:1;
+	}
+}
+
+
+
+@media screen and (max-width:783px) {
+	.wp-block-cover {
+		min-height:430px;
+	}
+	.standard-wrapper.image-bubble {
+		height:initial;
+	}
+	.wp-block-column:last-child {
+		flex-grow:1;
+	}
+	.team-gallery > .member-card .team-member {
+		width:33%;
+	}
+	.team-gallery .image {
+		height:39vw;
+	}
+}
+
+@media screen and (max-width:600px) {
+	.standard-wrapper.image-bubble, .standard-wrapper.image-bubble img{
+		height: 80vh;
+    max-height: 145vw;
+	}
+	.team-gallery > .member-card .team-member {
+		width:50%;
+	}
+	.team-gallery .image {
+		height:58vw;
+		max-height:initial;
+	}
 }

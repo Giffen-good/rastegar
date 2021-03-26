@@ -14,9 +14,9 @@ if( !empty($block['anchor']) ) {
     $id = $block['anchor'];
 }
 ?> 
-<div class="team-gallery sm-max-w">
+<div class="team-gallery">
   <h2 class='b-text has-text-align-center'>Our Team</h2>
-  <div>
+  <div class="member-card">
     <?php
     if ( have_rows('team_member_gallery') ) {
       while ( have_rows('team_member_gallery') ) : the_row();
@@ -32,14 +32,31 @@ if( !empty($block['anchor']) ) {
           </div>
           <h3><?php echo $name; ?></h3>
           <h4><?php echo $job_title; ?></h4>
-          <div class="hidden bio">
-            <?php echo $bio; ?>
-        </div>
+          <div class="bio hidden"><?php echo $bio; ?></div>
       </div>
     <?php
       endwhile;
     }
     // Load values and assign defaults.
     ?>
+  </div>
+  <div class="modal hidden">
+    <div class="bg"></div> 
+    <div class="inner">
+      <img class="modal-close" src="<?php echo get_template_directory_uri() . '/assets/close.svg'; ?>"/> 
+      <div class="flex">
+        <div class="image">
+          <img class="modal-image" />
+        </div>
+          <h3 class="modal-name"></h3>
+        <h4 class="modal-job-title"></h4>
+      </div>
+      <div>
+        <div class="modal-bio"></div>
+        <div class="wp-block-button modal-button-container">
+          <a class="wp-block-button__link modal-button"></a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
