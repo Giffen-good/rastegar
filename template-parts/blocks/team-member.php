@@ -25,6 +25,7 @@ if( !empty($block['anchor']) ) {
         $job_title = get_sub_field('job_title') ?: 'Job Title';
         $image = get_sub_field('image') ?: 295;
         $bio = get_sub_field('bio') ?: 'write bio here';
+        $cta = get_sub_field('cta');
       ?>
         <div id="<?php echo esc_attr($id); ?>" class="team-member">
           <div class="image">
@@ -33,6 +34,7 @@ if( !empty($block['anchor']) ) {
           <h3><?php echo $name; ?></h3>
           <h4><?php echo $job_title; ?></h4>
           <div class="bio hidden"><?php echo $bio; ?></div>
+          <a class="cta-btn hidden" src="<?php echo $cta ?>"></a>
       </div>
     <?php
       endwhile;
@@ -41,8 +43,9 @@ if( !empty($block['anchor']) ) {
     ?>
   </div>
   <div class="modal hidden">
-    <div class="bg"></div> 
     <div class="inner">
+    <div class="bg"></div> 
+
       <img class="modal-close" src="<?php echo get_template_directory_uri() . '/assets/close.svg'; ?>"/> 
       <div class="flex">
         <div class="image">
@@ -59,4 +62,6 @@ if( !empty($block['anchor']) ) {
       </div>
     </div>
   </div>
+  <div class="modal hidden modal-wrap"></div>
+
 </div>

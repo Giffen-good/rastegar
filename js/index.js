@@ -2,6 +2,25 @@
   document.addEventListener('DOMContentLoaded', function() {
     if (!document.querySelector('.hero-banner')) {
       document.getElementById('masthead').classList.add('dark-mode')
+      
+    } else {
+      checkBurgerPos();
+      var HERO_BANNER_CONSTANT;
+      if (!alogo) {
+        HERO_BANNER_CONSTANT = 0.65;
+
+        window.addEventListener('scroll', checkBurgerPos)
+
+      } else {
+        HERO_BANNER_CONSTANT = 1;
+      }
+    }
+    function checkBurgerPos() {
+      if (window.scrollY > window.innerHeight*HERO_BANNER_CONSTANT) {
+        document.getElementById('nav-icon3').classList.add('invert')
+      } else {
+        document.getElementById('nav-icon3').classList.remove('invert')
+      }
     }
     var alogo = document.querySelector('.animated-logo');
     if (alogo) {
@@ -28,6 +47,7 @@
      
       if (document.getElementById(`slide-${currentSlide}`)) document.getElementById(`slide-${currentSlide}`).classList.add('show-slide');
       document.addEventListener('scroll', function() {
+        if (document.querySelector('.hero-banner')) checkBurgerPos();
         var scrollPos = window.scrollY;
         if (scrollPos < h) {
         var n = scrollPos/h
@@ -44,9 +64,12 @@
     if (!sessionStorage.isVisited) {
       sessionStorage.isVisited = 'true'
       var splashVideo = document.getElementById('splash-video');
-      if (splashVideo) {
+      if (splashVideo) {                                                     
+        var smallSrc;
+        if ( window.innerWidth > 783 ) smallSrc = splashVideo.getAttribute('small-src');
+        var src = smallSrc  || splashVideo.getAttribute('src')
         var vid = document.createElement('video')
-        vid.src = splashVideo.getAttribute('src');
+        vid.src = src;
         vid.type = "video/mp4";
         vid.autoplay = true;
         vid.muted = true;
@@ -72,9 +95,21 @@
       document.querySelector('.modal-bio').innerText  = el.querySelector('.bio').innerText;
       document.querySelector('.modal-image').setAttribute('src', el.querySelector('img').getAttribute('src'));
       document.querySelector('.modal-button').innerText = `Contact ${name.split()[0]}`;
+      document.querySelector('.modal-button').src = el.querySelector('.cta-btn').src
+    }
+    var modalWrap = document.querySelectorAll('.modal-wrap');
+    for (var i = 0; i < modalWrap.length; i++) {
+      modalWrap[i].addEventListener('click', function(e) {
+        console.log('1')
+        for (var j = 0; j < e.path.length; j++) {
+         if (e.path[j].classList && !e.path[j].classList.contains('.modal') || e.target !== document.querySelector('.modal')) document.querySelector('.modal').classList.remove('open');
+        }
+      }, true)
     }
     for (var i = 0; i < teamGalleries.length;i++) {
+      
       teamGalleries[i].addEventListener('click', function(e) {
+        console.log('2')
         for (var j = 0; j < e.path.length; j++) {
           if (e.path[j].classList && e.path[j].classList.contains('team-member')) {
             createModal(e.path[j]);
@@ -82,7 +117,7 @@
           }
           if (e.path[j].classList && e.path[j].classList.contains('.modal-close') || e.target === document.querySelector('.modal-close')) document.querySelector('.modal').classList.remove('open');
         }
-      })
+      }, false)
     }
   }
   var tableOfContents = document.querySelector('.table-of-contents');
@@ -98,9 +133,9 @@
       realToC.id = 'real-table-of-contents'
       realToC.classList.add('wp-block-columns')
       for (var i = 0; i < chapters.length; i++) {
-        chapters[i].id = `chapter-${i}`;
         var label = document.createElement('h4');
         label.innerText = `Chapter ${i + 1}`;
+        label.id = `chapter-${i}`;
         label.classList.add('chapter-label');
         chapters[i].parentNode.insertBefore(label, chapters[i]);
         var inner = document.createElement('a');
@@ -136,7 +171,7 @@
         }
       });
     }, 
-    {rootMargin: "0px 0px -200px 0px"});
+    {rootMargin: "0px 0px -100px 0px"});
     function fadeIn(selector) {
       document.querySelectorAll(selector).forEach(el => {
         if (el.offsetTop > window.pageYOffset) {
@@ -145,6 +180,9 @@
         }
       });
     }
-    fadeIn('.entry-content > *');
-    fadeIn('.sixty-forty-gallery .column');
+    console.log(!document.querySelector('.is-post-page'))
+    if (!document.querySelector('.is-post-page')) {
+      fadeIn('.entry-content > *');
+      fadeIn('.sixty-forty-gallery .column');
+    }
 })();

@@ -22,8 +22,9 @@ get_header();
 			the_post();
 			$splash_color = get_field('splash_video_background_color');
 			$splash = get_field('splash_page_video');
-			if (	$splash  ) {
-				echo "<div id='splash-video' class='hidden' src='" . $splash . "'><div style='background-color:" . $splash_color . "'></div></div>";
+			$splash_mobile = get_field('splash_page_video_mobile');
+			if (   $splash   ) {
+				echo "<div id='splash-video' class='hidden hero-banner vid' small-src='". $splash_mobile ."' src='" . $splash . "'><div style='background-color:" . $splash_color . "'></div></div>";
 			}
 			get_template_part( 'template-parts/content', 'page' );
 

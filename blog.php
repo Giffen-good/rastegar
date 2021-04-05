@@ -30,6 +30,10 @@ get_header();
     $args['post_type'] = $post_type;
   }
   $posts =  new WP_Query($args);
+  // <div>
+  //   <?php wp_list_categories('current_category=1&hide_title_if_empty=0&title_li=<h2>Filter</h2>'); 
+  // </div>
+  // <?php
       while ($posts->have_posts()) :
         if ($posts->have_posts()) : $posts->the_post();
          get_template_part( 'template-parts/content', 'blog-post' );

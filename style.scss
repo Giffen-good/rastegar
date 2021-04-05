@@ -56,7 +56,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 
 $pageWidth:95%;
-$pageWidthPadding: 5vw;
+$pageWidthPadding: 2.5vw;
 $smallerMaxWidth: 960px;
 $largeMaxWidth: 1400px;
 $themePrimary: #35638B;
@@ -712,11 +712,11 @@ textarea {
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.toggled .main-navigation ul {
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 783px) {
 
 	.menu-toggle {
 		display: none;
@@ -1059,7 +1059,7 @@ header {
 	position:absolute;
 	width:100%;
 	padding: 18px 27px;
-	z-index: 2;
+	z-index: 3;
 	align-items: center;
 	display:flex;
 	justify-content: space-between;
@@ -1332,10 +1332,6 @@ ul {
 	max-width: $largeMaxWidth;
 	width:$pageWidth;
 	margin: 0 auto;
-	& > li, .wp-block-column:not(:first-child) {
-		margin-left:10px !important;
-		margin-right:0 !important;
-	}
 }
 .opass {
 	height: 100%;
@@ -1354,6 +1350,16 @@ ul {
 	width:$pageWidth;
 	max-width: $smallerMaxWidth;
 }
+.entry-content > .flush {
+	max-width: initial !important;
+	width: 100% !important;
+	& > div {
+		padding: 0 $pageWidthPadding;
+	}
+}
+footer.site-footer {
+	margin-top: 3rem;
+}
 .post-page {
 	margin-top: 7rem;
 }
@@ -1371,11 +1377,12 @@ ul {
 	font-size:1rem;
 	opacity:0.33;
 }
-.chapter-label {
-	margin-top:12rem;
+.chapter-label { 
+	margin-top:9rem !important;
+	padding-top: 1rem;
 }
 .chapter-heading {
-	margin-bottom:2rem;
+	margin-bottom:1rem !important;
 	text-align: center;
 }
 #toc-wrap {
@@ -1408,6 +1415,7 @@ ul {
 		height: 32vw;
 		max-height:304px;
 		border-radius: 26px;
+		overflow: hidden;
 	}
 	img {
 		position:absolute;
@@ -1455,8 +1463,9 @@ ul {
 	display: none;
 }
 .modal.open {
-	max-height: 100vh;
-	overflow: hidden;
+	max-height: 90vh;
+	overflow: auto;
+	z-index: 2;
 	.image {
 		width:21vw;
 		max-width: 230px;
@@ -1471,7 +1480,10 @@ ul {
 	width:$pageWidth;
 	transform:translate(-50%,-50%);
 	.inner {
-		padding:34px;
+		position:relative;
+		& > *:not(.bg):not(.modal-close) {
+			padding:34px;
+		}
 	}
 	.bg {
 		top:50%;
@@ -1483,6 +1495,15 @@ ul {
 		background:rgba(234, 234, 234, 0.85);
 		filter: blur(4px);
 		border-radius: 25px;
+	}
+	& + .modal-wrap {
+		position: fixed;
+		height:100%;
+		width:100vw;
+		display: block;
+		top:0;
+		left:0;
+		z-index: 1;
 	}
 }
 .team-gallery .modal-close {
@@ -1548,9 +1569,60 @@ ul {
 	
 	flex-wrap:wrap;
 }
+.news-feed-widget {
+	overflow-x: hidden;
+	max-width: initial;
+	display: block;
+	.fl-50 {
+		flex: 1 0 35%;
+		max-width: 450px;
+	
+	}
+	& > div {
+		overflow-y: hidden;
+		margin-right:2.5vw;
+		grid-column: 1 / -1;
+		display: grid;
+		grid-gap: 10px;
+		grid-template-columns: repeat(6, calc(50% - 20px * 2));
+		grid-template-rows: minmax(150px, 1fr);
+		padding: 0 20px;
+		overflow-x: scroll;
+		scroll-snap-type: x proximity;
+		padding-bottom: calc(.75 * 20px);
+		margin-bottom: calc(-.25 * 20px);
+		& > a {
+			scroll-snap-align: center;
+			padding: 0px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			background: #fff;
+			border-radius: 8px;
+		}
+	}
+}
+h2 a {
+	opacity: 0.3;
+}
+.stretched p {
+	margin-bottom: 0;
+}
+.stretched {
+	margin-top: 25px;
+}
+.stretched .standard-wrapper {
+	height: 100%;
+}
+.stretched .wp-block-column, .bubble-container  .wp-block-column  {
+	margin: 0 5px;
+}
+.news-feed-widget > div {
+	overflow: auto;
+}
 .news-item.product-card {
 	height: initial;
-	
 }
 .news-item {
 	& > img {
@@ -1598,11 +1670,27 @@ ul {
 	flex-wrap: nowrap;
 }
 
-
-
+@media screen and (max-width:1100px) {
+	.featured-prop {
+		.wp-block-cover {
+			min-height: 50vw;
+		}
+		.standard-wrapper.image-bubble img {
+			height: 100%;
+		}
+	}
+}
 @media screen and (max-width:783px) {
 	.v-align-cen {
 		order:2;
+	}
+	.featured-prop {
+		.wp-block-cover {
+			min-height: 65vw;
+		}
+	}
+	.featured-prop .wp-block-column:last-child{
+		flex-grow: 0;
 	}
 	.column {
 		flex-wrap:wrap;
@@ -1637,8 +1725,6 @@ ul {
 	}
 	video {
 		z-index: 2;
-		max-height:100%;
-		max-width: 100%;
 		top:50%;
 		left:50%;
 		position:absolute;
@@ -1687,8 +1773,10 @@ ul {
 }
 .out-of-view {
 	opacity:0;
+	padding-top:70px;
 	&.in-view {
-		transition:opacity 1s;
+		padding-top:0;
+		transition:all 0.6s;
 		opacity:1;
 	}
 }
@@ -1705,6 +1793,13 @@ ul {
 	.wp-block-column:last-child {
 		flex-grow:1;
 	}
+	.stretched .wp-block-column {
+		flex-basis: calc(50% - 10px)!important;
+	}
+	.stretched .wp-block-column:last-child {
+		margin-top: 10px;
+		margin-right:14px;
+	}
 	.team-gallery > .member-card .team-member {
 		width:33%;
 	}
@@ -1712,8 +1807,45 @@ ul {
 		height:39vw;
 	}
 }
-
+@media screen and (max-width:700px) {
+	
+}
 @media screen and (max-width:600px) {
+	.fl-50 {
+		flex-basis: 100%;
+		max-width: 100%;
+	}
+	.entry-content > p, .entry-content > h1, .entry-content > h2, .entry-content > h3, .entry-content > h4, .entry-content > h5,.entry-content > h6 {
+		padding:0 10px;
+	}
+	.entry-content > ul {
+		padding-right: 10px;
+	}
+	#real-table-of-contents  .standard-wrapper:nth-child(2n) {
+		margin-right:0;
+	}
+
+	#real-table-of-contents  .standard-wrapper:nth-child(2n + 1) {
+		margin-left:0;
+	}
+	.team-gallery > .member-card .team-member:nth-child(2n) {
+		padding-right:0;
+	}
+	.team-gallery > .member-card .team-member:nth-child(2n + 1) {
+		padding-left:0;
+	}
+	.xs-max-w, .entry-content > *:not(.sixty-forty):not(.hero-banner) {
+		width: 100%;
+	}
+	.entry-content > .flush > div {
+		padding: initial;
+	}
+	.bubble-container {
+		width: 100% !important;
+	}
+	.bubble-container .wp-block-column {
+		flex-basis: 100% !important;
+	}
 	.standard-wrapper.image-bubble, .standard-wrapper.image-bubble img{
 		height: 80vh;
     max-height: 145vw;
@@ -1725,4 +1857,335 @@ ul {
 		height:58vw;
 		max-height:initial;
 	}
+}
+
+// Hamburger
+
+
+$top: 8;
+// Concatenation of units by addition results in conversion to string. This is bad
+
+$width: 27;
+$height: $width*0.75;
+
+
+
+$top-px: $top*1px;  // = 20px;
+$top-px-2: $top*2px;
+$width-px: $width*1px;
+$height-px: $height*1px;
+
+
+/* Icon 1 */
+#nav-icon1, #nav-icon2, #nav-icon3, #nav-icon4 {
+	position: fixed;
+	width: $width-px;
+	height: $height-px;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: .5s ease-in-out;
+	-moz-transition: .5s ease-in-out;
+	-o-transition: .5s ease-in-out;
+	transition: .5s ease-in-out;
+	cursor: pointer;
+	top:23px;
+  }
+  
+  #nav-icon1 span, #nav-icon3 span, #nav-icon4 span {
+	display: block;
+	position: absolute;
+	height: 2px;
+	width: 100%;
+	background: #000;
+	border-radius: 9px;
+	opacity: 1;
+	left: 0;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: .25s ease-in-out;
+	-moz-transition: .25s ease-in-out;
+	-o-transition: .25s ease-in-out;
+	transition: .25s ease-in-out;
+  }
+  
+  #nav-icon1 span:nth-child(1) {
+	top: 0px;
+  }
+  
+  #nav-icon1 span:nth-child(2) {
+	top: $top-px;
+  }
+  
+  #nav-icon1 span:nth-child(3) {
+	top: $top-px-2;
+  }
+  
+  #nav-icon1.open span:nth-child(1) {
+	top: $top-px;
+	-webkit-transform: rotate(135deg);
+	-moz-transform: rotate(135deg);
+	-o-transform: rotate(135deg);
+	transform: rotate(135deg);
+  }
+  
+  #nav-icon1.open span:nth-child(2) {
+	opacity: 0;
+	left: -60px;
+  }
+  
+  #nav-icon1.open span:nth-child(3) {
+	top: $top-px;
+	-webkit-transform: rotate(-135deg);
+	-moz-transform: rotate(-135deg);
+	-o-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+  }
+  
+  /* Icon 2 */
+  
+  #nav-icon2 {
+  }
+  
+  #nav-icon2 span {
+	display: block;
+	position: absolute;
+	height: 9px;
+	width: 50%;
+	background: #d3531a;
+	opacity: 1;
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: .25s ease-in-out;
+	-moz-transition: .25s ease-in-out;
+	-o-transition: .25s ease-in-out;
+	transition: .25s ease-in-out;
+  }
+  
+  #nav-icon2 span:nth-child(even) {
+	left: 50%;
+	border-radius: 0 9px 9px 0;
+  }
+  
+  #nav-icon2 span:nth-child(odd) {
+	left:0px;
+	border-radius: 9px 0 0 9px;
+  }
+  
+  #nav-icon2 span:nth-child(1), #nav-icon2 span:nth-child(2) {
+	top: 0px;
+  }
+  
+  #nav-icon2 span:nth-child(3), #nav-icon2 span:nth-child(4) {
+	top: 18px;
+  }
+  
+  #nav-icon2 span:nth-child(5), #nav-icon2 span:nth-child(6) {
+	top: 36px;
+  }
+  
+  #nav-icon2.open span:nth-child(1),#nav-icon2.open span:nth-child(6) {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+  }
+  
+  #nav-icon2.open span:nth-child(2),#nav-icon2.open span:nth-child(5) {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+  }
+  
+  #nav-icon2.open span:nth-child(1) {
+	left: 5px;
+	top: 7px;
+  }
+  
+  #nav-icon2.open span:nth-child(2) {
+	left: calc(50% - 5px);
+	top: 7px;
+  }
+  
+  #nav-icon2.open span:nth-child(3) {
+	left: -50%;
+	opacity: 0;
+  }
+  
+  #nav-icon2.open span:nth-child(4) {
+	left: 100%;
+	opacity: 0;
+  }
+  
+  #nav-icon2.open span:nth-child(5) {
+	left: 5px;
+	top: 29px;
+  }
+  
+  #nav-icon2.open span:nth-child(6) {
+	left: calc(50% - 5px);
+	top: 29px;
+  }
+  
+  /* Icon 3 */
+  
+  #nav-icon3 span:nth-child(1) {
+	top: 0px;
+  }
+  
+  #nav-icon3 span:nth-child(2),#nav-icon3 span:nth-child(3) {
+	top: $top-px;
+  }
+  
+  #nav-icon3 span:nth-child(4) {
+	top: $top-px-2;
+  }
+  
+  .toggled #nav-icon3 span:nth-child(1) {
+	top: $top-px;
+	width: 0%;
+	left: 50%;
+  }
+  
+  .toggled #nav-icon3 span:nth-child(2) {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+  }
+  
+  .toggled #nav-icon3 span:nth-child(3) {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+  }
+  
+  .toggled #nav-icon3 span:nth-child(4) {
+	top: $top-px;
+	width: 0%;
+	left: 50%;
+  }
+  
+  /* Icon 4 */
+  
+  #nav-icon4 {
+  }
+  
+  #nav-icon4 span:nth-child(1) {
+	top: 0px;
+	-webkit-transform-origin: left center;
+	-moz-transform-origin: left center;
+	-o-transform-origin: left center;
+	transform-origin: left center;
+  }
+  
+  #nav-icon4 span:nth-child(2) {
+	top: $top-px;
+	-webkit-transform-origin: left center;
+	-moz-transform-origin: left center;
+	-o-transform-origin: left center;
+	transform-origin: left center;
+  }
+  
+  #nav-icon4 span:nth-child(3) {
+	top: $top-px-2;
+	-webkit-transform-origin: left center;
+	-moz-transform-origin: left center;
+	-o-transform-origin: left center;
+	transform-origin: left center;
+  }
+  
+  #nav-icon4.open span:nth-child(1) {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	top: -3px;
+	left: 8px;
+  }
+  
+  #nav-icon4.open span:nth-child(2) {
+	width: 0%;
+	opacity: 0;
+  }
+  
+  #nav-icon4.open span:nth-child(3) {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	top: 39px;
+	left: 8px;
+  }
+  
+
+
+
+
+#nav-icon3 {
+	outline:none;
+	border: none;
+	background: none;
+	span {
+		background: white
+	}
+}
+#nav-icon3.invert {
+	span {
+		background: $themePrimary;
+	}
+}
+.dark-mode #nav-icon3 span, .toggled #nav-icon3 span  {
+	background: $themePrimary;
+}
+
+
+.toggled .dark-mode {
+	position:fixed;
+	top: 19px;
+	
+	display: block;
+	z-index: 3;
+
+}
+.toggled #nav-icon3 {
+	display: block
+}
+.toggled .menu-main-menu-container {
+	position: fixed;
+	height: 100%;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	.menu {
+
+	}
+	li {
+		padding-left:0;
+		line-height: 1.5;
+		text-align: center;
+	}
+	a {
+		font-size:2.4rem;
+		color: $themePrimary;
+	}
+}
+
+@media screen and (max-width:783px) {
+
+.contact-button {
+	display: none;
+}
 }

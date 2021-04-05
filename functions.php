@@ -238,62 +238,71 @@ function my_acf_init_block_types() {
             'category'          => 'formatting',
             'icon'              => 'admin-comments',
             'keywords'          => array( 'product-card', 'rastegar' ),
-				));
+		));
 				
-				acf_register_block_type(array(
-					'name'              => 'team-member',
-					'title'             => __('Team Member Gallery'),
-					'description'       => __('Card containing Team Member image and modal'),
-					'render_template'   => 'template-parts/blocks/team-member.php',
-					'category'          => 'formatting',
-					'icon'              => 'admin-comments',
-					'keywords'          => array( 'team-member', 'rastegar' ),
-				));
-				acf_register_block_type(array(
-					'name'              => 'hero-video',
-					'title'             => __('Hero Video'),
-					'description'       => __('Hero Banner with optional youtube video embed'),
-					'render_template'   => 'template-parts/blocks/hero-video.php',
-					'category'          => 'formatting',
-					'icon'              => 'admin-comments',
-					'keywords'          => array( 'hero-video', 'rastegar' ),
-				));
-				acf_register_block_type(array(
-					'name'              => 'two-column-gallery',
-					'title'             => __('Home Page 2-column gallery'),
-					'description'       => __('Home Page 2-column gallery'),
-					'render_template'   => 'template-parts/blocks/home-page-gallery.php',
-					'category'          => 'formatting',
-					'icon'              => 'admin-comments',
-					'keywords'          => array( 'home-page-gallery', 'rastegar' ),
-				));
-				acf_register_block_type(array(
-					'name'              => 'bubble-image',
-					'title'             => __('Bubble with cover Image'),
-					'description'       => __('Home Page Bubble with cover Image'),
-					'render_template'   => 'template-parts/blocks/bubble-image.php',
-					'category'          => 'formatting',
-					'icon'              => 'admin-comments',
-					'keywords'          => array( 'bubble-image', 'rastegar' ),
-				));
-				acf_register_block_type(array(
-					'name'              => 'alt-bubble-image',
-					'title'             => __('Alt bubble with cover Image'),
-					'description'       => __('About Bubble with cover Image'),
-					'render_template'   => 'template-parts/blocks/alt-bubble-image.php',
-					'category'          => 'formatting',
-					'icon'              => 'admin-comments',
-					'keywords'          => array( 'bubble-image', 'rastegar' ),
-				));
-				acf_register_block_type(array(
-					'name'              => 'faq-dropdown',
-					'title'             => __('FAQ dropdown'),
-					'description'       => __('FAQ dropdown'),
-					'render_template'   => 'template-parts/blocks/faq-dropdown.php',
-					'category'          => 'formatting',
-					'icon'              => 'admin-comments',
-					'keywords'          => array( 'faq-dropdown', 'rastegar' ),
-				));
+		acf_register_block_type(array(
+			'name'              => 'team-member',
+			'title'             => __('Team Member Gallery'),
+			'description'       => __('Card containing Team Member image and modal'),
+			'render_template'   => 'template-parts/blocks/team-member.php',
+			'category'          => 'formatting',
+			'icon'              => 'admin-comments',
+			'keywords'          => array( 'team-member', 'rastegar' ),
+		));
+		acf_register_block_type(array(
+			'name'              => 'hero-video',
+			'title'             => __('Hero Video'),
+			'description'       => __('Hero Banner with optional youtube video embed'),
+			'render_template'   => 'template-parts/blocks/hero-video.php',
+			'category'          => 'formatting',
+			'icon'              => 'admin-comments',
+			'keywords'          => array( 'hero-video', 'rastegar' ),
+		));
+		acf_register_block_type(array(
+			'name'              => 'two-column-gallery',
+			'title'             => __('Home Page 2-column gallery'),
+			'description'       => __('Home Page 2-column gallery'),
+			'render_template'   => 'template-parts/blocks/home-page-gallery.php',
+			'category'          => 'formatting',
+			'icon'              => 'admin-comments',
+			'keywords'          => array( 'home-page-gallery', 'rastegar' ),
+		));
+		acf_register_block_type(array(
+			'name'              => 'bubble-image',
+			'title'             => __('Bubble with cover Image'),
+			'description'       => __('Home Page Bubble with cover Image'),
+			'render_template'   => 'template-parts/blocks/bubble-image.php',
+			'category'          => 'formatting',
+			'icon'              => 'admin-comments',
+			'keywords'          => array( 'bubble-image', 'rastegar' ),
+		));
+		acf_register_block_type(array(
+			'name'              => 'alt-bubble-image',
+			'title'             => __('Alt bubble with cover Image'),
+			'description'       => __('About Bubble with cover Image'),
+			'render_template'   => 'template-parts/blocks/alt-bubble-image.php',
+			'category'          => 'formatting',
+			'icon'              => 'admin-comments',
+			'keywords'          => array( 'bubble-image', 'rastegar' ),
+		));
+		acf_register_block_type(array(
+			'name'              => 'faq-dropdown',
+			'title'             => __('FAQ dropdown'),
+			'description'       => __('FAQ dropdown'),
+			'render_template'   => 'template-parts/blocks/faq-dropdown.php',
+			'category'          => 'formatting',
+			'icon'              => 'admin-comments',
+			'keywords'          => array( 'faq-dropdown', 'rastegar' ),
+		));
+		acf_register_block_type(array(
+			'name'              => 'news-feed',
+			'title'             => __('News Feed'),
+			'description'       => __('News Feed'),
+			'render_template'   => 'template-parts/blocks/news-feed.php',
+			'category'          => 'formatting',
+			'icon'              => 'admin-comments',
+			'keywords'          => array( 'news-feed', 'rastegar' ),
+		));
     }
 }
 

@@ -51,7 +51,7 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'rastegar' ); ?></button>
+		
 			<?php
 			wp_nav_menu(
 				array(
@@ -60,6 +60,12 @@
 				)
 			);
 			?>
-			<div class="wp-block-button"><a class="wp-block-button__link" href="http://connect.rastegarproperty.com/">Contact</a></div>
+			<div class="wp-block-button contact-button"><a class="wp-block-button__link" href="http://connect.rastegarproperty.com/">Contact</a></div>
+			<button class="menu-toggle" aria-controls="primary-menu" id="nav-icon3" aria-expanded="false">  
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
