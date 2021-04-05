@@ -1580,7 +1580,6 @@ footer.site-footer {
 	}
 	& > div {
 		overflow-y: hidden;
-		margin-right:2.5vw;
 		grid-column: 1 / -1;
 		display: grid;
 		grid-gap: 10px;
@@ -1601,6 +1600,11 @@ footer.site-footer {
 			background: #fff;
 			border-radius: 8px;
 		}
+		&::after {
+			content:"";
+			width:2.5vw;
+			margin-right:-2.5vw;
+		}
 	}
 	.news-item {
 		width:100%;
@@ -1620,9 +1624,6 @@ h2 a {
 }
 .stretched .wp-block-column, .bubble-container  .wp-block-column  {
 	margin: 0 5px;
-}
-.news-feed-widget > div {
-	overflow: auto;
 }
 .news-item.product-card {
 	height: initial;
