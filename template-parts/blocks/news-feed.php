@@ -10,7 +10,7 @@
   $posts =  new WP_Query($args);
       while ($posts->have_posts()) :
         if ($posts->have_posts()) : $posts->the_post();
-         get_template_part( 'template-parts/content', 'news-item' );
+         get_template_part( 'template-parts/content', 'news-item-with-description' );
         endif;
       endwhile;
   
