@@ -1,5 +1,5 @@
     
-<div class="news-feed-widget wp-block-columns flush">
+<div class="news-feed-widget wp-block-columns">
     <div>
  <?php 
   $args = array(

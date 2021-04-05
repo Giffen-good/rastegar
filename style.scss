@@ -1573,6 +1573,7 @@ footer.site-footer {
 	.bod {
 		margin-bottom: 10px;
 	}
+	width:100% !important;
 	overflow-y: hidden;
 	overflow-x: hidden;
 	max-width: initial;
@@ -1620,6 +1621,10 @@ footer.site-footer {
 	}
 	.news-item {
 		width:100%;
+	}
+	@media screen and (max-width:783px) {
+		width: 95% !important;
+		margin: 0 auto;
 	}
 }
 @media screen and (min-width:1025px) {

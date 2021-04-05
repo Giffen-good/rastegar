@@ -1319,6 +1319,7 @@ footer.site-footer {
   flex-wrap: wrap; }
 
 .news-feed-widget {
+  width: 100% !important;
   overflow-y: hidden;
   overflow-x: hidden;
   max-width: initial;
@@ -1360,6 +1361,10 @@ footer.site-footer {
           max-width: initial; } }
   .news-feed-widget .news-item {
     width: 100%; }
+  @media screen and (max-width: 783px) {
+    .news-feed-widget {
+      width: 95% !important;
+      margin: 0 auto; } }
 
 @media screen and (min-width: 1025px) {
   .news-feed-widget > div {
