@@ -401,7 +401,7 @@ acronym {
 
 mark,
 ins {
-  background: #fff9c0;
+  background: #F2F2F29c0;
   text-decoration: none; }
 
 big {
@@ -411,7 +411,7 @@ big {
 --------------------------------------------- */
 body {
   overflow-x: hidden;
-  background: #fff; }
+  background: #F2F2F2; }
 
 hr {
   background-color: #ccc;
@@ -824,7 +824,7 @@ textarea {
 html {
   font-size: 16px; }
 
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1600px) {
   html {
     font-size: 18px; } }
 
@@ -839,7 +839,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 .wp-block-latest-posts__list a {
   line-height: 2.4rem;
-  font-size: 2.4rem; }
+  font-size: 2rem; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 1rem 0;
@@ -864,7 +864,7 @@ a {
 .wp-block-button__link {
   font-size: 1rem;
   background: linear-gradient(80.4deg, #66C9CF 2.21%, #7AB1E0 43.91%, #2A87D8 81.49%);
-  padding: 8px 28px; }
+  padding: 5px 28px; }
 
 /* CUSTOM */
 html, body {
@@ -1026,6 +1026,7 @@ footer {
   border-bottom: solid 1px rgba(53, 99, 139, 0.33); }
 
 .top-menus {
+  font-size: 0.75rem;
   display: flex;
   padding-top: 24px;
   justify-content: space-between; }
@@ -1181,6 +1182,20 @@ footer.site-footer {
       flex: 1 0 48%;
       max-width: initial; } }
 
+.team-gallery h4 {
+  line-height: 1.2rem;
+  font-size: 1rem;
+  opacity: 0.33;
+  margin: 0; }
+
+.team-gallery h3, .team-gallery h4 {
+  padding-right: 6px; }
+
+.team-gallery h3 {
+  margin: 7px 0;
+  line-height: 1.2rem;
+  font-size: 1.2rem; }
+
 .team-gallery .image {
   position: relative;
   border: solid 1px;
@@ -1199,6 +1214,9 @@ footer.site-footer {
   padding-top: 45px;
   text-align: center; }
 
+.flex {
+  display: flex; }
+
 .team-gallery > .member-card {
   display: flex;
   flex-wrap: wrap;
@@ -1208,17 +1226,8 @@ footer.site-footer {
   .team-gallery > .member-card .team-member {
     padding: 0 5px 45px;
     width: 25%; }
-    .team-gallery > .member-card .team-member h4 {
-      margin-top: -10px;
-      opacity: 0.33; }
     .team-gallery > .member-card .team-member * {
-      cursor: pointer;
-      margin: 0; }
-    .team-gallery > .member-card .team-member h3 {
-      line-height: 2rem;
-      font-size: 1.2rem; }
-    .team-gallery > .member-card .team-member h4 {
-      font-size: 1rem; }
+      cursor: pointer; }
     .team-gallery > .member-card .team-member .image {
       overflow: hidden; }
 
@@ -1241,6 +1250,10 @@ footer.site-footer {
   .modal.open .image {
     width: 21vw;
     max-width: 230px; }
+  .modal.open h4 {
+    font-size: 1.2rem; }
+  .modal.open hgroup {
+    margin: 0 33px; }
   .modal.open .inner {
     position: relative; }
     .modal.open .inner > *:not(.bg):not(.modal-close) {
@@ -1279,6 +1292,13 @@ footer.site-footer {
     .wp-block-columns:not(.sixty-forty) .wp-block-column, .wp-block-columns:not(.sixty-forty) .wp-block-column:not(:first-child) {
       margin-left: 0 !important;
       margin-right: 0 !important; }
+  .wp-block-columns:not(.sixty-forty).stretched .wp-block-column:not(:last-child):not(:first-child) {
+    margin-left: 5px !important; }
+  .wp-block-columns:not(.sixty-forty).stretched .wp-block-column:first-child {
+    margin-right: 5px !important; }
+  .entry-content > .disclaimer:not(.sixty-forty):not(.hero-banner),
+  .entry-content > .cta {
+    width: 95%; }
   .entry-content div.disclaimer:not(.hero-banner) {
     margin-bottom: 10px; } }
 
@@ -1325,7 +1345,7 @@ footer.site-footer {
   width: 100% !important;
   overflow-y: hidden;
   overflow-x: hidden;
-  max-width: initial;
+  max-width: initial !important;
   display: block; }
   .news-feed-widget .bod {
     margin-bottom: 15px; }
@@ -1351,7 +1371,7 @@ footer.site-footer {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: #fff;
+      background: #F2F2F2;
       border-radius: 8px; }
     .news-feed-widget > div::after {
       content: "";
@@ -1367,7 +1387,8 @@ footer.site-footer {
   @media screen and (max-width: 783px) {
     .news-feed-widget {
       width: 95% !important;
-      margin: 0 auto; } }
+      margin: 0 auto;
+      padding: 0 !important; } }
 
 @media screen and (min-width: 1025px) {
   .news-feed-widget > div {
@@ -1502,13 +1523,18 @@ h2 a {
 
 .out-of-view {
   opacity: 0;
-  padding-top: 70px; }
+  padding-top: 20px; }
   .out-of-view.in-view {
     padding-top: 0;
-    transition: all 0.6s;
+    transition: all 1s;
     opacity: 1; }
 
 @media screen and (max-width: 783px) {
+  html {
+    font-size: 15px; }
+  .sixty-forty-gallery .text-box {
+    padding-left: 2.5vw;
+    padding-right: 2.5vw; }
   .wp-block-cover {
     min-height: 430px; }
   .standard-wrapper.image-bubble {
@@ -1791,7 +1817,7 @@ h2 a {
   top: 0;
   left: 0;
   width: 100%;
-  background: #fff;
+  background: #F2F2F2;
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -1800,7 +1826,7 @@ h2 a {
     line-height: 1.5;
     text-align: center; }
   .toggled .menu-main-menu-container a {
-    font-size: 2.4rem;
+    font-size: 2rem;
     color: #35638B; }
 
 @media screen and (max-width: 783px) {
@@ -1818,3 +1844,49 @@ h2 a {
         flex: 1 0 35%; }
   .site-info {
     padding-bottom: 0; } }
+
+.filters .wp-block-button__link:not(.current-class) {
+  background: transparent;
+  color: #35638B;
+  border: solid 1px #35638B; }
+
+.filters h5 {
+  font-size: 1rem;
+  opacity: 0.33;
+  margin: 0; }
+
+.mr1 {
+  margin-right: 1rem; }
+
+.mr0-5 {
+  margin-right: 0.4rem; }
+
+.mb1 {
+  margin-bottom: 1.5rem; }
+
+.page-numbers {
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  list-style-type: none; }
+  .page-numbers li {
+    margin: 0 5px;
+    height: 22px;
+    width: 22px;
+    position: relative;
+    border-radius: 50px;
+    background-color: #35638B;
+    color: #f2f2f2;
+    font-size: 12px;
+    opacity: 0.33;
+    cursor: pointer; }
+    .page-numbers li.current-page {
+      opacity: 1; }
+    .page-numbers li a {
+      color: #f2f2f2;
+      position: absolute;
+      top: 50%;
+      height: 100%;
+      width: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%); }

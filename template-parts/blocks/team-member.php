@@ -51,8 +51,10 @@ if( !empty($block['anchor']) ) {
         <div class="image">
           <img class="modal-image" />
         </div>
+        <hgroup>
           <h3 class="modal-name"></h3>
-        <h4 class="modal-job-title"></h4>
+          <h4 class="modal-job-title"></h4>
+        </hgroup>
       </div>
       <div>
         <div class="modal-bio"></div>

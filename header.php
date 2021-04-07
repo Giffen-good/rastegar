@@ -60,7 +60,7 @@
 				)
 			);
 			?>
-			<div class="wp-block-button contact-button"><a class="wp-block-button__link" href="http://connect.rastegarproperty.com/">Contact</a></div>
+			<div class="wp-block-button contact-button"><a class="wp-block-button__link" href="https://connect.rastegarproperty.com/rastegarproperty-contact-us">Contact</a></div>
 			<button class="menu-toggle" aria-controls="primary-menu" id="nav-icon3" aria-expanded="false">  
 				<span></span>
 				<span></span>
