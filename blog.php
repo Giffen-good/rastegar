@@ -81,7 +81,7 @@ get_header();
     $archive_tags = post_type_tags( $post_type );
     global $wp;
     ?><div class="xs-max-w mb1 filters">
-    <h5>Filter</h5>
+    <h5>Filter by Topic:</h5>
     <?php
     foreach( $archive_tags as $tag ) {
       $class = ($tag_id == $tag->term_id ) ? 'current-class' : '';
