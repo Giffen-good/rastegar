@@ -54,6 +54,10 @@
           }
         })
       }
+      function loadHomePageAssets() {
+        appendAnimatedLogo();
+        loadHeroVideo();
+      }
       if (sessionStorage.isVisited) appendAnimatedLogo();
       function removeAllClass(name) {
         var els = document.querySelectorAll(`.${name}`);
@@ -79,7 +83,7 @@
         splashVideo.classList.add('playing');
         splashVideo.appendChild(vid);
         vid.onplaying = function() {
-          appendAnimatedLogo();
+          loadHomePageAssets();
           console.log('video-playing');
         }
         vid.addEventListener('ended',myHandler,false);
@@ -87,8 +91,24 @@
           splashVideo.classList.add('completed');
         }
       }
+    } else {
+      loadHeroVideo();
     }
   })
+  function loadHeroVideo() {
+    var heroBannerVid = document.querySelectorAll('section.hero-banner.vid video');
+    if (heroBannerVid.length) {
+      for (var i = 0; i < heroBannerVid.length;i++) {
+        for (var source in heroBannerVid[i].children) {
+          var videoSource = heroBannerVid[i].children[source];
+          if (typeof videoSource.tagName === "string" && videoSource.tagName === "SOURCE") {
+            videoSource.src = videoSource.dataset.src;
+          }
+        }
+        heroBannerVid[i].load();
+      }
+    }
+  }
   var teamGalleries = document.querySelectorAll('.team-gallery');
   if (teamGalleries) {
     function createModal(el){

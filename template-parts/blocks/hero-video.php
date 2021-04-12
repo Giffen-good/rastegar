@@ -26,11 +26,11 @@ $cover_image = get_field('cover_image');
 if ($self_hosted_video) {
 
   $video = '
-    <video autoplay muted loop>
-      <source src="' . $self_hosted_video['url'] .'"
+    <video autoplay muted loop poster="' . $cover_image . '">
+      <source data-src="' . $self_hosted_video['url'] .'" 
               type="video/webm">
 
-      <source src="' . $self_hosted_video['url'] . '"
+      <source data-src="' . $self_hosted_video['url'] . '" 
               type="video/mp4">
             Sorry, your browser doesn\'t support embedded videos.
     </video>
