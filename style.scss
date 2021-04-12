@@ -1551,6 +1551,9 @@ footer.site-footer {
 	}
 }
 
+.no-margin {
+	margin: 0 !important
+}
 .animated-logo{
 	position:relative;
 	height:100%;
@@ -1758,7 +1761,7 @@ h2 a {
 	}
 	.animated-logo {
 		margin-top:-3rem;
-		min-height:46vw;
+		min-height:100vw;
 	}
 }
 
@@ -1834,9 +1837,14 @@ h2 a {
 	}
 }
 
-
+.mobile-contact {
+	display: none;
+}
 
 @media screen and (max-width:783px) {
+	.mobile-contact {
+		display: initial;
+	}
 	footer.site-footer,
 	.wp-block-cover .wp-block-cover__inner-container,
 	.entry-content > div.wp-block-group.cta {
@@ -1851,6 +1859,7 @@ h2 a {
 	.sixty-forty-gallery .text-box {
 		padding-left:4vw !important;
 		padding-right:4vw !important;
+		margin-left:0;
 	}
 	.wp-block-cover {
 		min-height:430px;

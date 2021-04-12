@@ -27,56 +27,61 @@
      
       var templateUrl = object_name.templateUrl;
       var FRAME_COUNT = 60;
-      var frames = []
-      for (var i = 0; i < FRAME_COUNT; i++) {
-        var img = new Image();
-        var pathName = `${templateUrl}/assets/logo_orbit_transparent_png/_Blender_Orbit_000${i < 10 ? '0' + i : i}.png`;
-        img.src = pathName
-        img.id = `slide-${i}`
-        alogo.appendChild(img);
+      var frames = [];
+      function appendAnimatedLogo() {
+        for (var i = 0; i < FRAME_COUNT; i++) {
+          var img = new Image();
+          var pathName = `${templateUrl}/assets/logo_orbit_transparent_png/_Blender_Orbit_000${i < 10 ? '0' + i : i}.png`;
+          img.src = pathName
+          img.id = `slide-${i}`
+          alogo.appendChild(img);
+        }
+        var h = window.innerHeight*1.8;
+        var currentSlide = Math.floor(FRAME_COUNT*window.scrollY/h);
+       
+        if (document.getElementById(`slide-${currentSlide}`)) document.getElementById(`slide-${currentSlide}`).classList.add('show-slide');
+        document.addEventListener('scroll', function() {
+          if (document.querySelector('.hero-banner')) checkBurgerPos();
+          var scrollPos = window.scrollY;
+          if (scrollPos < h) {
+          var n = scrollPos/h
+            var newSlide = Math.floor(FRAME_COUNT*n)
+            if (currentSlide !== newSlide) {
+              removeAllClass('show-slide');
+              currentSlide = newSlide;
+              document.getElementById(`slide-${currentSlide}`).classList.add('show-slide');
+            }
+          }
+        })
       }
+      if (sessionStorage.isVisited) appendAnimatedLogo();
       function removeAllClass(name) {
         var els = document.querySelectorAll(`.${name}`);
         for (var i = 0; i < els.length; i++) {
           els[i].classList.remove(name);
         }
       }
-
-      var h = window.innerHeight*1.8;
-      var currentSlide = Math.floor(FRAME_COUNT*window.scrollY/h);
-     
-      if (document.getElementById(`slide-${currentSlide}`)) document.getElementById(`slide-${currentSlide}`).classList.add('show-slide');
-      document.addEventListener('scroll', function() {
-        if (document.querySelector('.hero-banner')) checkBurgerPos();
-        var scrollPos = window.scrollY;
-        if (scrollPos < h) {
-        var n = scrollPos/h
-          var newSlide = Math.floor(FRAME_COUNT*n)
-          if (currentSlide !== newSlide) {
-            removeAllClass('show-slide');
-            currentSlide = newSlide;
-            document.getElementById(`slide-${currentSlide}`).classList.add('show-slide');
-          }
-        }
-      });
     }
-   
     if (!sessionStorage.isVisited) {
       sessionStorage.isVisited = 'true'
       var splashVideo = document.getElementById('splash-video');
       if (splashVideo) {                                                     
         var smallSrc;
-        if ( window.innerWidth > 783 ) smallSrc = splashVideo.getAttribute('small-src');
+        if ( window.innerWidth < 783 ) smallSrc = splashVideo.getAttribute('small-src');
         var src = smallSrc  || splashVideo.getAttribute('src')
         var vid = document.createElement('video')
         vid.src = src;
-        vid.type = "video/mp4";
         vid.autoplay = true;
+        vid.type = "video/mp4";
         vid.muted = true;
         
         vid.id = 'splashVideo';
         splashVideo.classList.add('playing');
         splashVideo.appendChild(vid);
+        vid.onplaying = function() {
+          appendAnimatedLogo();
+          console.log('video-playing');
+        }
         vid.addEventListener('ended',myHandler,false);
         function myHandler(e) {
           splashVideo.classList.add('completed');
