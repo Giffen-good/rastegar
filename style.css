@@ -1535,6 +1535,8 @@ h2 a {
   display: none; }
 
 @media screen and (max-width: 783px) {
+  #splash-video video {
+    min-height: 177.77vw; }
   .mobile-contact {
     display: initial; }
   footer.site-footer,
