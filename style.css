@@ -1450,6 +1450,9 @@ h2 a {
   margin: 0;
   flex-wrap: nowrap; }
 
+.featured-prop .image-bubble {
+  border: solid 1px; }
+
 @media screen and (max-width: 1100px) {
   .featured-prop .wp-block-cover {
     min-height: 50vw; }
