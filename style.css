@@ -1543,6 +1543,7 @@ h2 a {
   .mobile-contact {
     display: initial; }
   footer.site-footer,
+  .xs-max-w, .entry-content > *:not(.sixty-forty):not(.hero-banner),
   .wp-block-cover .wp-block-cover__inner-container,
   .entry-content > div.wp-block-group.cta {
     width: 92%; }
@@ -1586,8 +1587,6 @@ h2 a {
     padding-right: 0; }
   .team-gallery > .member-card .team-member:nth-child(2n + 1) {
     padding-left: 0; }
-  .xs-max-w, .entry-content > *:not(.sixty-forty):not(.hero-banner) {
-    width: 100%; }
   .entry-content > .flush > div {
     padding: initial; }
   .bubble-container {
