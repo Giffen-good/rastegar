@@ -78,6 +78,7 @@
         vid.autoplay = true;
         vid.type = "video/mp4";
         vid.muted = true;
+        vid.playsInline = true;
         
         vid.id = 'splashVideo';
         splashVideo.classList.add('playing');

@@ -26,7 +26,7 @@ $cover_image = get_field('cover_image');
 if ($self_hosted_video) {
 
   $video = '
-    <video autoplay muted loop poster="' . $cover_image . '">
+    <video autoplay muted playsinline loop poster="' . $cover_image . '">
       <source data-src="' . $self_hosted_video['url'] .'" 
               type="video/webm">
 
