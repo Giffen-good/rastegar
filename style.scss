@@ -1474,6 +1474,7 @@ footer.site-footer {
 	display: none;
 }
 .modal.open {
+	overflow-x: hidden;
 	max-height: 90vh;
 	overflow: auto;
 	z-index: 2;
@@ -2311,7 +2312,14 @@ $height-px: $height*1px;
 	color:$themePrimary;
 	border: solid 1px $themePrimary;
 }
+.filters .wp-block-button__link {
+	margin: 5px 0.4rem 5px 0px;
+}
+.filters h5 + .wp-block-button__link {
+	margin-left:5px;
+}
 .filters h5 {
+	padding-left:6px;
 	font-size: 1rem;
 	opacity: 0.33;
 	margin: 0;

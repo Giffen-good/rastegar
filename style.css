@@ -1238,6 +1238,7 @@ footer.site-footer {
   display: none; }
 
 .modal.open {
+  overflow-x: hidden;
   max-height: 90vh;
   overflow: auto;
   z-index: 2;
@@ -1880,7 +1881,14 @@ h2 a {
   color: #35638B;
   border: solid 1px #35638B; }
 
+.filters .wp-block-button__link {
+  margin: 5px 0.4rem 5px 0px; }
+
+.filters h5 + .wp-block-button__link {
+  margin-left: 5px; }
+
 .filters h5 {
+  padding-left: 6px;
   font-size: 1rem;
   opacity: 0.33;
   margin: 0; }

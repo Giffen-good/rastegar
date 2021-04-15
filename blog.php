@@ -63,10 +63,10 @@ get_header();
 
     $args = array(
       'post_type' => 'post',
-      'posts_per_page' => 4,
+      'posts_per_page' => 8,
       'paged' => $paged
     );
-    
+  $include_tag_filter = get_field('add_filter_by_tag_sub_nav');
    $post_type = get_field('post_type');
     if ($post_type) {
       $args['post_type'] = $post_type;
@@ -80,15 +80,18 @@ get_header();
 
     $archive_tags = post_type_tags( $post_type );
     global $wp;
-    ?><div class="xs-max-w mb1 filters">
-    <h5>Filter by Topic:</h5>
-    <?php
-    foreach( $archive_tags as $tag ) {
-      $class = ($tag_id == $tag->term_id ) ? 'current-class' : '';
-        echo '<a href="' . add_query_arg( array('tag_id' => $tag->term_id ), $wp->request ). '" class="wp-block-button__link mr0-5 ' . $class . '">' . esc_html( $tag->name ) . '</a>';
+    if ($include_tag_filter) {
+      ?><div class="xs-max-w mb1 filters">
+      <h5>Filter by Topic:</h5>
+      <?php
+      foreach( $archive_tags as $tag ) {
+        $class = ($tag_id == $tag->term_id ) ? 'current-class' : '';
+          echo '<a href="' . add_query_arg( array('tag_id' => $tag->term_id ), $wp->request ). '" class="wp-block-button__link mr0-5 ' . $class . '">' . esc_html( $tag->name ) . '</a>';
+      }
+      ?></div>
+      <?php
     }
-    ?></div>
-<?php
+   
     if ($posts->have_posts()) :
       ?>
       <div class="news-feed wp-block-columns xs-max-w">
@@ -104,7 +107,7 @@ get_header();
         (function() {
           document.addEventListener('DOMContentLoaded', function() {
             var c = document.getElementById('pagination-container').querySelector('.current');
-            c.closest('li').classList.add('current-page');
+            if (c) c.closest('li').classList.add('current-page');
           })
         })();
       </script>

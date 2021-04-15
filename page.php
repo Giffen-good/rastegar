@@ -23,10 +23,14 @@ get_header();
 			$splash_color = get_field('splash_video_background_color');
 			$splash = get_field('splash_page_video');
 			$splash_mobile = get_field('splash_page_video_mobile');
-			if (   $splash   ) {
-				echo "<div id='splash-video' class='hidden hero-banner vid' small-src='". $splash_mobile ."' src='" . $splash . "'><div style='background-color:" . $splash_color . "'></div></div>";
-			} else {
-				echo "<div id='splash-video' class='hidden hero-banner vid' src='" . $splash . "'><div style='background-color:" . $splash_color . "'></div></div>";
+			if (   $splash ||  $splash_mobile ) {
+				if ( $splash && $splash_mobile ) {
+					echo "<div id='splash-video' class='hidden hero-banner vid' small-src='". $splash_mobile ."' src='" . $splash . "'><div style='background-color:" . $splash_color . "'></div></div>";
+				} else if ( $splash_mobile ) {
+					echo "<div id='splash-video' class='hidden hero-banner vid' src='" . $splash_mobile . "'><div style='background-color:" . $splash_color . "'></div></div>";
+				} else {
+					echo "<div id='splash-video' class='hidden hero-banner vid' src='" . $splash . "'><div style='background-color:" . $splash_color . "'></div></div>";
+				}
 			}
 			get_template_part( 'template-parts/content', 'page' );
 
