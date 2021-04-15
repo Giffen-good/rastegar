@@ -1474,7 +1474,6 @@ footer.site-footer {
 	display: none;
 }
 .modal.open {
-	overflow-x: hidden;
 	max-height: 90vh;
 	overflow: auto;
 	z-index: 2;
@@ -1498,6 +1497,7 @@ footer.site-footer {
 		margin: 0 33px;
 	}
 	.inner {
+		overflow: hidden;
 		position:relative;
 		& > *:not(.bg):not(.modal-close) {
 			padding:34px;
