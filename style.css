@@ -1066,6 +1066,9 @@ ul {
   .bubble-container .wp-block-column {
     margin: 0 5px; }
 
+.image-bubble img {
+  height: 100%; }
+
 .alt.image-bubble .bg-img {
   position: initial; }
 
