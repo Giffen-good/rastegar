@@ -21,6 +21,7 @@ $image = get_field('image') ?: 295;
 ?>
 <div id="<?php echo esc_attr($id); ?>" class=" standard-wrapper wp-block-cover image-bubble">
   <div class="image bg-img">
+    <div class="opass white"></div>
     <img src="<?php echo $image["url"]; ?>" alt="<?php echo $image["alt"]; ?>" />
   </div>
   <div class="text-box">

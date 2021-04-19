@@ -34,7 +34,11 @@ if( !empty($block['anchor']) ) {
           <h3><?php echo $name; ?></h3>
           <h4><?php echo $job_title; ?></h4>
           <div class="bio hidden"><?php echo $bio; ?></div>
-          <a class="cta-btn hidden" src="<?php echo $cta ?>"></a>
+          <?php if ($cta) {
+?>
+            <a class="cta-btn hidden" src="<?php echo $cta ?>"></a>
+<?php
+          } ?>
       </div>
     <?php
       endwhile;
@@ -58,9 +62,6 @@ if( !empty($block['anchor']) ) {
       </div>
       <div>
         <div class="modal-bio"></div>
-        <div class="wp-block-button modal-button-container">
-          <a class="wp-block-button__link modal-button"></a>
-        </div>
       </div>
     </div>
   </div>

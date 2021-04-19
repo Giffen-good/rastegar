@@ -1211,7 +1211,18 @@ footer.site-footer {
 	max-width: $smallerMaxWidth;
 	margin: 0 auto;
 }
-
+.disclaimer > * {
+	opacity: 0.33;
+}
+.opass.white {
+	background-color:black;
+	opacity: 0.15;
+	width: 100%;
+	height:100%;
+	position: absolute;
+	top:0;
+	left:0;
+}
 footer {
 	padding-bottom:20px;
 	ul {
@@ -1241,7 +1252,9 @@ ul {
 	padding-left:22px;
 	margin-left:0;
 }
-
+.stretched + .stretched {
+	margin-top: 10px;
+}
 .footer-menu {
 	ul {
 		margin-left:0;
@@ -1473,13 +1486,29 @@ footer.site-footer {
 .hidden {
 	display: none;
 }
+.modal.open .inner > .flex {
+	padding-bottom:0 !important;
+	@media screen and (max-width:500px) {
+		flex-wrap: wrap;
+		hgroup {
+			margin-left:0;
+		}
+	}
+
+}
+@media screen and (max-width:500px) {
+	.modal.open .inner > *:not(.bg):not(.modal-close) {
+		padding-top:15px;
+	}
+
+}
 .modal.open {
 	max-height: 90vh;
 	overflow: auto;
 	z-index: 2;
 	.image {
-		width:21vw;
-		max-width: 230px;
+		width:230px;
+		height:345px !important
 	}
 	h4 {
 		font-size: 1.2rem;
@@ -1533,8 +1562,10 @@ footer.site-footer {
 	cursor:pointer;
 }
 @media screen and (max-width:600px) {
-	.wp-block-columns:not(.sixty-forty) {
+	.entry-content > .wp-block-columns:not(.sixty-forty) {
 		width:92% !important;
+	}
+	.wp-block-columns:not(.sixty-forty) {
 		 .wp-block-column,  .wp-block-column:not(:first-child) {
 			 margin-left: 0 !important;
 			 margin-right: 0 !important;
@@ -1767,6 +1798,7 @@ h2 a {
 	}
 	.animated-logo {
 		margin-top:-3rem;
+		margin-bottom:-2rem;
 		min-height:100vw;
 	}
 }
@@ -1885,7 +1917,7 @@ h2 a {
 	}
 	.stretched .wp-block-column:last-child {
 		margin-top: 10px;
-		margin-right:14px;
+		margin-right:5px;
 	}
 	.team-gallery > .member-card .team-member {
 		width:33%;
@@ -1925,9 +1957,6 @@ h2 a {
 	}
 	.entry-content > .flush > div {
 		padding: initial;
-	}
-	.bubble-container {
-		width: 100% !important;
 	}
 	.bubble-container .wp-block-column {
 		flex-basis: 100% !important;
