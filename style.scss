@@ -1224,6 +1224,11 @@ footer.site-footer {
 	left:0;
 }
 footer {
+	h6.underline {
+		text-decoration: underline;
+		font-size:0.75rem;
+		margin-bottom:0;
+	}
 	padding-bottom:20px;
 	ul {
 		list-style-type: none;
@@ -2364,6 +2369,9 @@ $height-px: $height*1px;
 .filters {
 	& > * {
 		padding-left: 4vw;
+		padding-right: 4vw;
+	}
+	.filter-topics > div:last-child {
 		padding-right: 4vw;
 	}
 }

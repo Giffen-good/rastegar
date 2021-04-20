@@ -20,26 +20,40 @@
 		<div class="site-info">
 			<div><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '/assets/logo-dark.png'; ?>" /></a></div>
 			<div class="top-menus">
-				<div><span><?php echo $address; ?></span></div>
-				<div><span><?php echo $phone_number; ?></span></div>
-				<div class="social-media-container">
-						<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'social-media',
-						)
-					);
-					?>
+				<div>
+					<h6 class="underline">Headquarters</h6>
+					
+					<span><?php echo $address; ?></span></div>
+				<div>
+					<h6 class="underline">Phone Number</h6>
+					<span><?php echo $phone_number; ?></span>
 				</div>
-				<div class="main-menu-container">
-				<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'menu-1',
-						)
-					);
-					?>
+				<div>
+					<h6 class="underline">Socials</h6>
 
+					<div class="social-media-container">
+							<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'social-media',
+							)
+						);
+						?>
+					</div>
+				</div>
+				<div>
+					<h6 class="underline">Sitemap</h6>
+
+					<div class="main-menu-container">
+					<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'menu-1',
+							)
+						);
+						?>
+
+					</div>
 				</div>
 			</div>
 		</div><!-- .site-info -->

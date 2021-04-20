@@ -1023,6 +1023,10 @@ footer.site-footer {
 
 footer {
   padding-bottom: 20px; }
+  footer h6.underline {
+    text-decoration: underline;
+    font-size: 0.75rem;
+    margin-bottom: 0; }
   footer ul {
     list-style-type: none;
     margin-bottom: 0;
@@ -1927,6 +1931,9 @@ h2 a {
 
 .filters > * {
   padding-left: 4vw;
+  padding-right: 4vw; }
+
+.filters .filter-topics > div:last-child {
   padding-right: 4vw; }
 
 .filters h5 {
