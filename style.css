@@ -1562,12 +1562,23 @@ h2 a {
 .faq-entry .head-wrapper {
   cursor: pointer;
   padding: 0 34px; }
+  .faq-entry .head-wrapper.open .heading {
+    border-bottom: none; }
 
 .faq-entry .dropdown {
-  margin: 20px 34px; }
+  margin: 20px 34px;
+  margin-bottom: 0; }
+
+.faq-entry .open .plus, .faq-entry .minus {
+  display: none; }
+
+.faq-entry .open .minus {
+  display: initial; }
 
 .faq-entry .open + .dropdown {
-  display: block; }
+  display: block;
+  border-bottom: solid 1px;
+  padding-bottom: 30px; }
 
 .faq-entry .heading {
   display: flex;
@@ -1575,8 +1586,8 @@ h2 a {
   justify-content: space-between;
   border-bottom: solid 1px; }
 
-.faq-entry:last-child .open .heading {
-  border-bottom: solid 1px; }
+.faq-entry:last-child .open + .dropdown {
+  border-bottom: none; }
 
 .faq-entry:last-child .heading {
   border-bottom: none; }

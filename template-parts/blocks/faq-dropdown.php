@@ -30,6 +30,8 @@ if( !empty($block['anchor']) ) {
             <h3 class="b-text"><?php echo $title; ?></h3>
             <span class='icon'>
               <img class="plus" src="<?php echo get_template_directory_uri() . '/assets/plus.svg'; ?>" />
+              <img class="minus" src="<?php echo get_template_directory_uri() . '/assets/subtract.svg'; ?>" />
+
             </span>
           </div>
         </div>

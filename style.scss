@@ -1867,13 +1867,24 @@ h2 a {
 	.head-wrapper {
 		cursor: pointer;
 		padding: 0 34px;
-
+		&.open .heading {
+			border-bottom:none;
+		}
 	}
 	.dropdown {
 		margin: 20px 34px;
+		margin-bottom:0;
+	}
+	.open .plus, .minus {
+		display: none;
+	}
+	.open .minus {
+		display: initial;
 	}
 	.open + .dropdown {
 		display: block;
+		border-bottom: solid 1px;
+		padding-bottom: 30px;
 	}
 	.heading {
 		display: flex;
@@ -1882,9 +1893,8 @@ h2 a {
 		border-bottom:solid 1px;
 	}
 	&:last-child {
-		
-		.open .heading {
-			border-bottom: solid 1px;
+		.open + .dropdown {
+			border-bottom: none;
 		}
 		.heading {
 			border-bottom: none;
