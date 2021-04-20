@@ -27,5 +27,7 @@ $image = get_field('image') ?: 295;
   <div class="text-box">
     <p><?php echo $small_text; ?></p>
     <h2><?php echo $title; ?></h2>
+    <p></p>
+    <p class="bod">1899 Mckinney is a planned high-rise development in the heart of the Victory Park neighborhood.</p>
   </div>
 </div>

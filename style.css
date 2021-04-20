@@ -1014,7 +1014,7 @@ footer.site-footer {
 
 .opass.white {
   background-color: black;
-  opacity: 0.15;
+  opacity: 0.25;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -1084,6 +1084,9 @@ ul {
       margin: 0 auto; } }
   .bubble-container .wp-block-column {
     margin: 0 5px; }
+
+.standard-wrapper.image-bubble .bod {
+  margin-top: 34px; }
 
 .image-bubble img {
   height: 100%; }

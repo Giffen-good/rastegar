@@ -15,7 +15,7 @@ if( !empty($block['anchor']) ) {
 }
 ?> 
 <div class="team-gallery">
-  <h2 class='b-text has-text-align-center'>Our Team</h2>
+  <h2 class='b-text has-text-align-center'>Our Executive Team</h2>
   <div class="member-card">
     <?php
     if ( have_rows('team_member_gallery') ) {
