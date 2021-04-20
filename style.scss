@@ -2359,12 +2359,11 @@ $height-px: $height*1px;
 
 .filters {
 	& > * {
-		padding-left: 5vw;
-		padding-right: 5vw;
+		padding-left: 4vw;
+		padding-right: 4vw;
 	}
 }
 .filters h5 {
-	padding-left:6px;
 	font-size: 1rem;
 	opacity: 0.33;
 	margin: 0;
