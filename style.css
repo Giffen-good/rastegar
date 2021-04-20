@@ -1412,7 +1412,8 @@ footer.site-footer {
       margin-right: -2.5vw; }
     @media screen and (max-width: 783px) {
       .news-feed-widget > div {
-        display: initial; }
+        display: block;
+        padding: 0; }
         .news-feed-widget > div a.fl-50 {
           max-width: initial; } }
   .news-feed-widget .news-item {

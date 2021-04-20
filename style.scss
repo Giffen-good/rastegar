@@ -1676,7 +1676,8 @@ footer.site-footer {
 			margin-right:-2.5vw;
 		}
 		@media screen and (max-width:783px) {
-			display:initial;
+			display:block;
+			padding:0;
 			a.fl-50 {
 				max-width: initial;
 			}
