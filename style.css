@@ -1453,6 +1453,9 @@ h2 a {
 .filters {
   overflow: hidden; }
 
+.post-84 .featured-image {
+  height: 24vw; }
+
 .news-item {
   margin-bottom: 10px;
   padding: 1.6rem;
@@ -1465,7 +1468,6 @@ h2 a {
   .news-item h2 {
     margin-top: 0; }
   .news-item .featured-image {
-    height: 24vw;
     max-height: 500px;
     object-fit: cover; }
   .news-item p {

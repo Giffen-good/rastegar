@@ -1722,6 +1722,11 @@ h2 a {
 .filters {
 	overflow: hidden;
 }
+.post-84 {
+	.featured-image {
+		height:24vw;
+	}
+}
 .news-item {
 	& > img {
 		margin-bottom:1rem;
@@ -1731,7 +1736,6 @@ h2 a {
 	}
 	margin-bottom: 10px;
 	.featured-image {
-		height:24vw;
 		max-height:500px;
 		object-fit: cover;
 	}
