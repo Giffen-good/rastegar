@@ -1426,7 +1426,7 @@ footer.site-footer {
 
 @media screen and (min-width: 1025px) {
   .news-feed-widget > div {
-    grid-template-columns: repeat(6, 450px); } }
+    grid-template-columns: repeat(18, 450px); } }
 
 h2 a {
   opacity: 0.3; }
