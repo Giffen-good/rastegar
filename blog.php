@@ -81,7 +81,7 @@ get_header();
     $archive_tags = post_type_tags( $post_type );
     global $wp;
     if ($include_tag_filter) {
-      ?><div class="xs-max-w mb1 filters">
+      ?><div class=" mb1 filters">
       <h5>Filter by Topic:</h5>
       <div class="filter-topics">
       <?php
