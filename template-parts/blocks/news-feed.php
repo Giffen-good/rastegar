@@ -4,7 +4,7 @@
  <?php 
   $args = array(
     'post_type' => 'post',
-    'posts_per_page' => 8,
+    'posts_per_page' => 100,
     'post_type' => 'news'
   );
   $posts =  new WP_Query($args);
