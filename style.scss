@@ -2362,7 +2362,9 @@ $height-px: $height*1px;
 .mb1{
 	margin-bottom:1.5rem;
 }
-
+.mb-1 {
+	margin-bottom:1rem !important;
+}
 .page-numbers {
 	padding-left:0;
 	display: flex;
