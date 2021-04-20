@@ -1246,11 +1246,14 @@ footer {
 	border-bottom: solid 1px $themePrimary;
 	border-top:solid 1px rgba(53, 99, 139, 0.33);
 	border-bottom:solid 1px rgba(53, 99, 139, 0.33);
+	img {
+		width:160px;
+	}
 }
 .top-menus {
 	font-size:0.75rem;
 	display: flex;
-	padding-top:24px;
+	padding-top:4px;
 	justify-content: space-between;
 }
 ul {

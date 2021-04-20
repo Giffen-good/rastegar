@@ -18,7 +18,7 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<div><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '/assets/logo-dark.png'; ?>" /></a></div>
+			<div><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri() . '/assets/logo-landscape-dark.png'; ?>" /></a></div>
 			<div class="top-menus">
 				<div>
 					<h6 class="underline">Headquarters</h6>
