@@ -2354,9 +2354,14 @@ $height-px: $height*1px;
 }
 .filters .wp-block-button__link {
 	margin: 5px 0.4rem 5px 0px;
+	white-space: nowrap;
 }
+
 .filters {
-	padding-left:6px;
+	& > * {
+		padding-left: 5vw;
+		padding-right: 5vw;
+	}
 }
 .filters h5 {
 	padding-left:6px;

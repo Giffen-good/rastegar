@@ -1920,10 +1920,12 @@ h2 a {
   border: solid 1px #35638B; }
 
 .filters .wp-block-button__link {
-  margin: 5px 0.4rem 5px 0px; }
+  margin: 5px 0.4rem 5px 0px;
+  white-space: nowrap; }
 
-.filters {
-  padding-left: 6px; }
+.filters > * {
+  padding-left: 5vw;
+  padding-right: 5vw; }
 
 .filters h5 {
   padding-left: 6px;
