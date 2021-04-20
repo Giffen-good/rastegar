@@ -1446,6 +1446,13 @@ h2 a {
 .news-item.product-card {
   height: initial; }
 
+.filter-topics {
+  display: flex;
+  overflow: auto; }
+
+.filters {
+  overflow: hidden; }
+
 .news-item {
   margin-bottom: 10px;
   padding: 1.6rem;

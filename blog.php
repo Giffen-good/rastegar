@@ -83,12 +83,15 @@ get_header();
     if ($include_tag_filter) {
       ?><div class="xs-max-w mb1 filters">
       <h5>Filter by Topic:</h5>
+      <div class="filter-topics">
       <?php
       foreach( $archive_tags as $tag ) {
         $class = ($tag_id == $tag->term_id ) ? 'current-class' : '';
-          echo '<a href="' . add_query_arg( array('tag_id' => $tag->term_id ), $wp->request ). '" class="wp-block-button__link mr0-5 ' . $class . '">' . esc_html( $tag->name ) . '</a>';
+          echo '<div><a href="' . add_query_arg( array('tag_id' => $tag->term_id ), $wp->request ). '" class="wp-block-button__link mr0-5 ' . $class . '">' . esc_html( $tag->name ) . '</a></div>';
       }
-      ?></div>
+      ?>
+      </div>  
+    </div>
       <?php
     }
    
