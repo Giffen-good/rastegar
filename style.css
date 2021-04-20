@@ -1458,6 +1458,7 @@ h2 a {
   .news-item h2 {
     margin-top: 0; }
   .news-item .featured-image {
+    height: 24vw;
     max-height: 500px;
     object-fit: cover; }
   .news-item p {
