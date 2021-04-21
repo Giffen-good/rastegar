@@ -1497,15 +1497,15 @@ h2 a {
   .news-item aside {
     flex-shrink: 0;
     display: flex;
-    align-items: center; }
+    align-items: center;
+    padding-top: 10px; }
     .news-item aside span {
       padding-right: 10px; }
 
 .news-item .wp-block-columns {
   align-items: baseline;
   justify-content: space-between;
-  margin: 0;
-  flex-wrap: nowrap; }
+  margin: 0; }
 
 .featured-prop .image-bubble {
   border: solid 1px; }
