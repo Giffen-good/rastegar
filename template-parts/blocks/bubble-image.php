@@ -18,6 +18,7 @@ if( !empty($block['anchor']) ) {
 $title = get_field('heading') ?: 'Your Title here...';
 $small_text = get_field('small_text') ?: 'Content';
 $image = get_field('image') ?: 295;
+$body = get_field('body');
 ?>
 <div id="<?php echo esc_attr($id); ?>" class=" standard-wrapper wp-block-cover image-bubble">
   <div class="image bg-img">
@@ -27,7 +28,11 @@ $image = get_field('image') ?: 295;
   <div class="text-box">
     <p><?php echo $small_text; ?></p>
     <h2><?php echo $title; ?></h2>
-    <p></p>
-    <p class="bod">1899 Mckinney is a planned high-rise development in the heart of the Victory Park neighborhood.</p>
+    <?php if ($body) {
+      ?>
+        <p class="bod"><?php echo $body; ?></p>
+      <?php
+    }
+    ?>
   </div>
 </div>
