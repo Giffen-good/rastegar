@@ -1970,7 +1970,10 @@ h2 a {
   margin-bottom: 1.5rem; }
 
 .mb-1 {
-  margin-bottom: 1rem !important; }
+  margin-bottom: 1.25rem !important; }
+
+.entry-content.post-page p {
+  margin: 0.6rem auto !important; }
 
 .page-numbers {
   padding-left: 0;
