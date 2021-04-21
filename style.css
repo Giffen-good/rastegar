@@ -1290,6 +1290,7 @@ footer.site-footer {
   width: 95%;
   transform: translate(-50%, -50%); }
   .modal.open .image {
+    flex-shrink: 0;
     width: 230px;
     height: 345px !important; }
   .modal.open h4 {

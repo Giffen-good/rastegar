@@ -126,22 +126,23 @@
     var modalWrap = document.querySelectorAll('.modal-wrap');
     for (var i = 0; i < modalWrap.length; i++) {
       modalWrap[i].addEventListener('click', function(e) {
-        console.log('1')
-        for (var j = 0; j < e.path.length; j++) {
-         if (e.path[j].classList && !e.path[j].classList.contains('.modal') || e.target !== document.querySelector('.modal')) document.querySelector('.modal').classList.remove('open');
+        var path = e.path || (e.composedPath && e.composedPath());
+        
+        for (var j = 0; j < path.length; j++) {
+         if (path[j].classList && !path[j].classList.contains('.modal') || e.target !== document.querySelector('.modal')) document.querySelector('.modal').classList.remove('open');
         }
       }, true)
     }
     for (var i = 0; i < teamGalleries.length;i++) {
       
       teamGalleries[i].addEventListener('click', function(e) {
-        console.log('2')
-        for (var j = 0; j < e.path.length; j++) {
-          if (e.path[j].classList && e.path[j].classList.contains('team-member')) {
-            createModal(e.path[j]);
+        var path = e.path || (e.composedPath && e.composedPath());
+        for (var j = 0; j < path.length; j++) {
+          if (path[j].classList && path[j].classList.contains('team-member')) {
+            createModal(path[j]);
             break;
           }
-          if (e.path[j].classList && e.path[j].classList.contains('.modal-close') || e.target === document.querySelector('.modal-close')) document.querySelector('.modal').classList.remove('open');
+          if (path[j].classList && path[j].classList.contains('.modal-close') || e.target === document.querySelector('.modal-close')) document.querySelector('.modal').classList.remove('open');
         }
       }, false)
     }

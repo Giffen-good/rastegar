@@ -1521,6 +1521,7 @@ footer.site-footer {
 	overflow: auto;
 	z-index: 2;
 	.image {
+		flex-shrink:0;
 		width:230px;
 		height:345px !important
 	}
