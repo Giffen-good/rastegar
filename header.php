@@ -78,7 +78,7 @@
 				)
 			);
 			?>
-			<div class="wp-block-button contact-button"><a target="_blank" class="wp-block-button__link" href="https://connect.rastegarproperty.com/rastegarproperty-contact-us">Contact</a></div>
+			<div class="wp-block-button contact-button"><a target="_blank" class="wp-block-button__link" href="https://connect.rastegarproperty.com/rastegarproperty-contact-us-4">Contact</a></div>
 			<button class="menu-toggle" aria-controls="primary-menu" id="nav-icon3" aria-expanded="false">  
 				<span></span>
 				<span></span>
