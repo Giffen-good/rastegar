@@ -2,7 +2,7 @@
 /** @var array $args */
 
 $featured_img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' );
-$url = get_field('url') ? get_field('url') : get_permalink();
+$url = get_field('outlink') ? get_field('outlink') : get_permalink();
   ?>
 <a rel=”noopener noreferrer” href="<?php echo $url; ?>" class="fl-50" >
   <div class="news-item standard-wrapper blog-postcard">
