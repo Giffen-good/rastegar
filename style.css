@@ -1973,8 +1973,14 @@ h2 a {
 .mb-1 {
   margin-bottom: 1.25rem !important; }
 
+.mt-10 {
+  margin-top: 10px; }
+
 .entry-content.post-page p {
   margin: 0.6rem auto !important; }
+
+.entry-content > *:first-child:not(.hero-banner) {
+  margin-top: 8rem; }
 
 .page-numbers {
   padding-left: 0;
